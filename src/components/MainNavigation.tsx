@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Leaf } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
+import logoImage from "@/assets/logo.png";
 
 // Add your plants here - you can modify this list
 const plants = [
@@ -17,30 +19,29 @@ export function MainNavigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Leaf className="h-6 w-6 text-primary" />
-            <span className="font-bold text-xl">Plant Monitor</span>
+            <img src={logoImage} alt="I2B Logo" className="h-6 w-6" />
+            <span className="font-bold text-xl">I2B Plant Monitor</span>
           </Link>
           
           <div className="flex space-x-1">
-            <Button
-              variant={location.pathname === "/" ? "default" : "ghost"}
-              asChild
-            >
-              <Link to="/">Home</Link>
-            </Button>
-            
-            {plants.map((plant) => {
-              const isActive = location.pathname.startsWith(`/plant/${plant.id}`);
-              return (
-                <Button
-                  key={plant.id}
-                  variant={isActive ? "default" : "ghost"}
-                  asChild
-                >
-                  <Link to={`/plant/${plant.id}`}>{plant.name}</Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center gap-1">
+                  Plants List
+                  <ChevronDown className="h-4 w-4" />
                 </Button>
-              );
-            })}
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[200px]">
+                <DropdownMenuItem asChild>
+                  <Link to="/" className="w-full">Home</Link>
+                </DropdownMenuItem>
+                {plants.map((plant) => (
+                  <DropdownMenuItem key={plant.id} asChild>
+                    <Link to={`/plant/${plant.id}`} className="w-full">{plant.name}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>

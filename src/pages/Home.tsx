@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Leaf, BarChart3, ImageIcon, FileText } from "lucide-react";
+import { BarChart3, ImageIcon, FileText } from "lucide-react";
+import flangedPipeIcon from "@/assets/flanged-pipe-icon.png";
+import logoImage from "@/assets/logo.png";
 
 const plants = [
   { 
@@ -47,8 +49,8 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
-          <Leaf className="h-10 w-10 text-primary" />
-          Plant Monitoring System
+          <img src={logoImage} alt="I2B Logo" className="h-10 w-10" />
+          I2B Plant Monitoring System
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
           Monitor and track the behavior of your industrial plants with real-time dashboards, 
@@ -78,7 +80,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center gap-2">
-                    <Leaf className="h-5 w-5 text-primary" />
+                    <img src={flangedPipeIcon} alt="Plant" className="h-5 w-5" />
                     {plant.name}
                   </CardTitle>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
