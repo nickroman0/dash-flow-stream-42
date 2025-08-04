@@ -8,8 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 // Mock plant data - replace with your actual plant names
 const plantNames: Record<string, string> = {
   "plant-1": "Poland - Belsk",
-  "plant-2": "Plant Beta", 
-  "plant-3": "Plant Gamma"
+  "plant-2": "Italy - Sant'Angelo", 
+  "plant-3": "France - Villers Ecalles"
 };
 
 export default function PlantDashboard() {
