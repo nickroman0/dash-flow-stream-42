@@ -6,7 +6,7 @@ import logoImage from "@/assets/logo.png";
 
 // Add your plants here - you can modify this list
 const plants = [
-  { id: "plant-1", name: "Plant Alpha" },
+  { id: "plant-1", name: "Poland - Belsk" },
   { id: "plant-2", name: "Plant Beta" },
   { id: "plant-3", name: "Plant Gamma" },
 ];
